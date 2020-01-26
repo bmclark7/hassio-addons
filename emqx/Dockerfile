@@ -38,5 +38,11 @@ MAINTAINER Brett Clark
 #COPY data/auth_srv.sh /bin/
 #COPY data/mosquitto.conf /etc/
 
+RUN docker pull emqx/emqx emqx/emqx  && \
+    docker run -p:1883:1883 -p 18083:18083 \
+                   -e TZ=America/New_York \
+                   --name emqx/emqx \
+                   emqx/emqx
+
 WORKDIR /
 CMD ./bin/emqx start

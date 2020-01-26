@@ -1,6 +1,10 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
+ENV LANG C.UTF-8
+
+MAINTAINER Brett Clark
+
 # Install mosquitto + auth plugin
 #WORKDIR /usr/src
 #ARG MOSQUITTO_AUTH_VERSION
@@ -35,4 +39,4 @@ FROM $BUILD_FROM
 #COPY data/mosquitto.conf /etc/
 
 WORKDIR /
-CMD [ "/bin/emqx start" ]
+CMD ./bin/emqx start

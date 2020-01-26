@@ -1,0 +1,36 @@
+{
+  "name": "EMQX Broker",
+  "version": "4.0.1",
+  "slug": "emqx",
+  "description": "An Open Source MQTT broker",
+  "url": "https://github.com/bmclark7/hassio-addons/tree/master/emqx",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "system",
+  "boot": "auto",
+  "map": ["ssl", "share"],
+  "discovery": ["mqtt"],
+  "services": ["mqtt:provide"],
+  "auth_api": true,
+  "ports": {
+    "1883/tcp": 1883,
+    "8081/tcp": 8081,
+    "8083/tcp": 8083,
+    "8084/tcp": 8084,
+    "8883/tcp": 8883,
+    "11883/tcp": 11883,
+    "18083/tcp": 18083
+  },
+  "options": {
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem",
+    "require_certificate": false
+  },
+  "schema"
+    },
+    "cafile": "str?",
+    "certfile": "str",
+    "keyfile": "str",
+    "require_certificate": "bool"
+  },
+  "image": "emqx/emqx"
+}

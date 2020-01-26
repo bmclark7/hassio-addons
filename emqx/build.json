@@ -1,0 +1,9 @@
+{
+  "build_from": {
+    "aarch64": "emqx/emqx",
+    "amd64": "emqx/emqx",
+    "armhf": "emqx/emqx",
+    "armv7": "emqx/emqx",
+    "i386": "emqx/emqx"
+  },
+}

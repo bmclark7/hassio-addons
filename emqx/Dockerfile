@@ -1,3 +1,5 @@
+# Docker file to create an image for a hass.io add-on for EMQX.
+
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
@@ -5,44 +7,44 @@ ENV LANG C.UTF-8
 
 MAINTAINER Brett Clark
 
-# Install mosquitto + auth plugin
-#WORKDIR /usr/src
-#ARG MOSQUITTO_AUTH_VERSION
-#RUN apk add --no-cache \
-#        curl \
-#       mosquitto \
-#        musl \
-#        openssl \
-#        pwgen \
-#        socat \
-#    && apk add --no-cache --virtual .build-dependencies \
-#        build-base \
-#        curl-dev \
-#        git \
-#        mosquitto-dev \
-#        openssl-dev \
-#    \
-#    && git clone --depth 1 -b "${MOSQUITTO_AUTH_VERSION}" \
-#        https://github.com/pvizeli/mosquitto-auth-plug \
-#    && cd mosquitto-auth-plug \
-#    && cp config.mk.in config.mk \
-#    && make \
-#    && mkdir -p /usr/share/mosquitto \
-#    && cp -f auth-plug.so /usr/share/mosquitto \
-#    \
-#    && apk del .build-dependencies \
-#    && rm -fr /usr/src/mosquitto-auth-plug
+LABEL Description="This image is used to build and start the emq MQTT Broker and web client"
+
 #
-## Copy data
-#COPY data/run.sh /
-#COPY data/auth_srv.sh /bin/
-#COPY data/mosquitto.conf /etc/
+# First install software packages needed to compile emqx
+#
+RUN apk add --no-cache --virtual build-deps alpine-sdk git \
+    bsd-compat-headers \
+    erlang \
+    erlang-crypto \
+    erlang-public-key \
+    erlang-ssl \
+    erlang-parsetools \
+    erlang-runtime-tools \
+    erlang-xmerl \
+    erlang-tools \
+    erlang-stdlib \
+    erlang-dev \
+    erlang-eunit \
+    erlang-sasl \
+    erlang-os-mon \
+    erlang-mnesia \
+    erlang-observer \
+    erlang-kernel && \
+    mkdir /tmp/src && \
+    cd /tmp/src && \
+    git clone -b 4.0.1 https://github.com/emqx/emqx-rel.git && \
+    cd /tmp/src/emqx-rel && \
+    make && \
+    make install prefix=/usr/local && \
+    chmod +s /usr/local/bin/emq* && \
 
-RUN docker pull emqx/emqx emqx/emqx  && \
-    docker run -p:1883:1883 -p 18083:18083 \
-                   -e TZ=America/New_York \
-                   --name emqx/emqx \
-                   emqx/emqx
+#
+# Define an environment variable
+#
+# Use this variable when creating a container to specify the MQTT broker host.
+#ENV MQTT_HOST="hassio.local"
+#ENV MQTT_USER="guest"
+#ENV MQTT_PASS="guest"
+#ENV MQTT_TOPIC="homeassistant/sensor/rtl433"
 
-WORKDIR /
-CMD ./bin/emqx start
+CMD /usr/local/bin/emqx start

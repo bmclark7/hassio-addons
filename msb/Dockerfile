@@ -1,4 +1,6 @@
-FROM %%BASE_IMAGE%%
+ARG BUILD_FROM=vkorn/amd64-smartthings
+
+FROM $(BUILD_FROM)
 
 ENV LANG C.UTF-8
 

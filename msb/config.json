@@ -1,40 +1,33 @@
 {
-  "name": "RTL_433 to MQTT Bridge",
-  "version": "0.1",
-  "slug": "rtl4332mqtt",
-  "description": "433MHz RF to MQTT Bridge based on RTL_SDR/RTL_433 for RTL2832U based DVB-T USB tuners",
-  "url": "https://github.com/bmclark7/hassio-addons/tree/master/rtl4332mqtt",
-  "startup": "before",
-  "boot": "auto",
-  "map": ["config:rw", "ssl"],
-  "devices": ["/dev/bus/usb:/dev/bus/usb:rwm"],
-  "host_network": "False",
-  "arch": [
-    "aarch64",
-    "amd64",
-    "armv7",
-    "i386"
-  ],
-  "options":
-  {
-    "mqtt_host": "hassio.local",
-    "mqtt_user": "",
-    "mqtt_password": "",
-    "mqtt_topic": "homeassistant/rtl433/id",
-    "protocol": 100,
-    "frequency": 319500000,
-    "gain": 60,
-    "frequency_offset": 350
-  },
-  "schema":
-  {
-    "mqtt_host": "str",
-    "mqtt_user": "str",
-    "mqtt_password": "str",
-    "mqtt_topic": "str",
-    "protocol": "int",
-    "frequency": "int",
-    "gain": "int",
-    "frequency_offset": "int"
-   }
+    "name": "MQTTBridgeSmartThings",
+    "version": "1.0.3",
+    "slug": "smartthings",
+    "description": " Mqtt Bridge SmartThings (https://github.com/sgupta999/mqtt-bridge-smartthings)",
+    "url": "https://github.com/bmclark7/hassio-addons/tree/master/msb",
+    "arch": ["armhf", "aarch64", "amd64", "i386"],
+    "image": "vkorn/{arch}-smartthings",
+    "startup": "before",
+    "boot": "auto",
+    "host_network": true,
+    "options": {
+        "broker_host": "172.17.0.1",
+        "broker_port": 1883,
+        "preface": "smartthings",
+        "state_suffix": "state",
+        "command_suffix": "cmd",
+        "login": "login",
+        "password": "password",
+        "bridge_port": 2080
+
+    },
+    "schema": {
+        "broker_host": "str",
+        "broker_port": "int",
+        "preface": "str",
+        "state_suffix": "str",
+        "command_suffix": "str",
+        "login": "str",
+        "password": "str",
+        "bridge_port": "int"
+    }
 }

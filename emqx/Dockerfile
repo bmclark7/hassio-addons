@@ -1,6 +1,6 @@
 # Docker file to create an image for a hass.io add-on for EMQX.
 
-ARG BUILD_FROM
+ARG BUILD_FROM=emqx/emqx
 FROM $BUILD_FROM
 
 ENV LANG C.UTF-8

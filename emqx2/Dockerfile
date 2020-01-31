@@ -52,4 +52,5 @@ ENV MQTT_USER="guest"
 ENV MQTT_PASS="guest"
 ENV MQTT_TOPIC="homeassistant/sensor/rtl433"
 
-CMD cd / && ./config/emq/bin/emqx start
+CMD cd / && cp /config/emq/emq.sh /emq.sh && chmod +x /emq.sh && /emq.sh
+

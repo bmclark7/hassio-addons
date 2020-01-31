@@ -12,7 +12,7 @@ LABEL Description="This image is used to build and start the emq MQTT Broker and
 #
 # First install software packages needed to compile emqx
 #
-RUN apk add --no-cache --virtual build-deps alpine-sdk git \
+RUN apk add --no-cache --virtual alpine-sdk git \
     bsd-compat-headers \
     erlang \
     erlang-crypto \

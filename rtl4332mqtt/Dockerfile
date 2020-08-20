@@ -37,7 +37,7 @@ RUN apk add --no-cache --virtual build-deps alpine-sdk cmake git libusb-dev && \
     make install && \
     apk del build-deps && \
     rm -r /tmp/src && \
-    apk add --no-cache libusb mosquitto-clients jq librtlsdr@edge librtlsdr-dev@edge
+    apk add --no-cache libusb mosquitto-clients jq librtlsdr librtlsdr-dev
 
 #
 # Define an environment variable

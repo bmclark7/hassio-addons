@@ -27,6 +27,7 @@ RUN apk add --no-cache --virtual build-deps alpine-sdk cmake git libusb-dev && \
     make && \
     make install && \
     chmod +s /usr/local/bin/rtl_* && \
+    apk add librtlsdr@edge librtlsdr-dev@edge && \
     cd /tmp/src/ && \
     git clone https://github.com/merbanan/rtl_433 && \
     cd rtl_433/ && \

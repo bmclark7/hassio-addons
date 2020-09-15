@@ -1,0 +1,25 @@
+{
+  "name": "EMQX",
+  "version": "0.0.1",
+  "slug": "emqx",
+  "description": "EMQX, An Open Source MQTT Broker",
+  "url": "https://github.com/bmclark7/hassio-addons",
+  "startup": "application",
+  "init": false,
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7",
+    "i386"
+  ],
+  "boot": "auto",
+  "hassio_api": true,
+  "hassio_role": "default",
+  "options": {
+    "log_level": "info"
+  },
+  "schema": {
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)",
+  },
+  "image": "emqx/emqx"
+}

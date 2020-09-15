@@ -4,7 +4,7 @@
   "slug": "emqx",
   "description": "An Open Source MQTT broker",
   "url": "https://github.com/bmclark7/hassio-addons/tree/master/emqx",
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "arch": ["armv7", "aarch64", "amd64", "i386"],
   "startup": "before",
   "boot": "auto",
   "map": ["ssl", "share"],

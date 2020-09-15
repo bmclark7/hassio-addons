@@ -1,9 +1,11 @@
 {
+  "image": "emqx/emqx",
+  "squash": false,
   "build_from": {
-    "aarch64": "emqx/emqx",
-    "amd64": "emqx/emqx",
-    "armhf": "emqx/emqx",
-    "armv7": "emqx/emqx",
-    "i386": "emqx/emqx"
+    "aarch64": "arm64v8/emqx:latest",
+    "amd64": "amd64/emqx:latest",
+    "armv7": "arm32v7/emqx:latest",
+    "i386": "i386/emqx:latest"
   },
+  "args": {}
 }

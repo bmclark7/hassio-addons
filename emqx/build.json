@@ -7,5 +7,9 @@
     "armv7": "emqx/emqx:latest",
     "i386": "emqx/emqx:latest"
   },
-  "args": {}
+  "args": {
+    "PLATFORM_ETC_DIR": "/config/.storage/emqx/etc",
+    "PLATFORM_LOG_DIR": "/config/.storage/emqx/log",
+    "PLATFORM_DATA_DIR": "/config/.storage/emqx/data"
+  }
 }

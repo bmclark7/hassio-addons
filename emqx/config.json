@@ -1,10 +1,16 @@
 {
   "name": "EMQX",
-  "version": "0.0.1",
-  "slug": "emqx",
-  "description": "EMQX, An Open Source MQTT Broker",
-  "url": "https://github.com/bmclark7/hassio-addons",
-  "startup": "application",
+  "version": "latest",
+  "slug": "mqtt",
+  "description": "Scalable and Reliable Real-time MQTT Message Broker for IoT in 5G Era",
+  "url": "https://www.emqx.io",
+  "webui": "http://[HOST]:[PORT:18083]",
+  "ingress": true,
+  "ingress_port": 18083,
+  "homeassistant": "0.92.0",
+  "panel_icon": "mdi:code-brackets",
+  "panel_title": "MQTT",
+  "startup": "services",
   "init": false,
   "arch": [
     "aarch64",
@@ -16,14 +22,26 @@
   "hassio_api": true,
   "hassio_role": "default",
   "homeassistant_api": true,
-  "host_network": true,
   "auth_api": true,
-  "map": ["config:rw", "media:rw", "share:rw", "ssl"]
+  "ports": {
+    "8081/tcp": 8081,
+    "18083/tcp": 18083,
+    "11883/tcp": 11883,
+    "1883/tcp": 1883,
+    "8083/tcp": 8083,
+    "8883/tcp": 8883,
+    "8084/tcp": 8084
+  },
+  "map": [
+    "share:rw",
+    "media:rw",
+    "ssl",
+    "config:rw"
+  ],
   "options": {
     "log_level": "info"
   },
   "schema": {
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)"
-  },
-  "image": "emqx/emqx"
+  }
 }

@@ -15,11 +15,15 @@
   "boot": "auto",
   "hassio_api": true,
   "hassio_role": "default",
+  "homeassistant_api": true,
+  "host_network": true,
+  "auth_api": true,
+  "map": ["config:rw", "media:rw", "share:rw", "ssl"]
   "options": {
     "log_level": "info"
   },
   "schema": {
-    "log_level": "list(trace|debug|info|notice|warning|error|fatal)",
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)"
   },
   "image": "emqx/emqx"
 }

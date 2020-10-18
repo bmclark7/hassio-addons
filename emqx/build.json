@@ -8,8 +8,8 @@
     "i386": "emqx/emqx:latest"
   },
   "args": {
-    "PLATFORM_ETC_DIR": "/config/.storage/emqx/etc",
-    "PLATFORM_LOG_DIR": "/config/.storage/emqx/log",
-    "PLATFORM_DATA_DIR": "/config/.storage/emqx/data"
+    "PLATFORM_ETC_DIR": "/opt/emqx/etc",
+    "PLATFORM_LOG_DIR": "/opt/emqx/log",
+    "PLATFORM_DATA_DIR": "/opt/emqx/data"
   }
 }

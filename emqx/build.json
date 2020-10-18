@@ -6,10 +6,5 @@
     "amd64": "emqx/emqx:latest",
     "armv7": "emqx/emqx:latest",
     "i386": "emqx/emqx:latest"
-  },
-  "args": {
-    "PLATFORM_ETC_DIR": "/opt/emqx/etc",
-    "PLATFORM_LOG_DIR": "/opt/emqx/log",
-    "PLATFORM_DATA_DIR": "/opt/emqx/data"
   }
 }

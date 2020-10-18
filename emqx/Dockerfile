@@ -80,4 +80,4 @@ ENV EMQX_AUTH__USER__1__PASSWORD="Password1782!"
 
 #CMD cd / && cp /config/emq/emq.sh /emq.sh && chmod +x /emq.sh && /emq.sh
 
-VOLUME ["/opt/emqx","/opt/emqx/etc","/opt/emqx/log","/opt/emqx/data"]
+VOLUME ["/opt/emqx"]

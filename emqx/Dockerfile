@@ -27,7 +27,7 @@ COPY rootfs /
 # First install software packages needed to compile rtl_433 and to publish MQTT events
 #
 
-RUN apk add --no-cache bash
+#RUN apk add --no-cache bash
 
 #RUN apk add --no-cache --virtuals alpine-sdk git \
 #   bsd-compat-headers \

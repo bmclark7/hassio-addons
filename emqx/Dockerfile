@@ -17,7 +17,7 @@ LABEL Description="EMQ X Broker"
 COPY rootfs /
 
 # Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+#SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 #RUN mkdir /config/emqx
 #RUN mkdir /config/emqx/etc

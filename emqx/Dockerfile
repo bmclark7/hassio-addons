@@ -14,16 +14,15 @@ MAINTAINER Brett Clark
 
 LABEL Description="EMQ X Broker"
 
-# Set workdir
-WORKDIR /opt/emqx
+COPY rootfs /
 
 # Set shell
-#SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-#RUN mkdir /config/emqx
-#RUN mkdir /config/emqx/etc
-#RUN mkdir /config/emqx/log
-
+RUN mkdir /config/emqx
+RUN mkdir /config/emqx/etc
+RUN mkdir /config/emqx/log
+RUN mkdir /config/emqx/data
 #
 # First install software packages needed to compile rtl_433 and to publish MQTT events
 #
@@ -71,13 +70,13 @@ ENV EMQX_ALLOW_ANONYMOUS="false"
 ENV EMQX_AUTH__USER__PASSWORD_HASH="plain"
 ENV EMQX_AUTH__USER__1__USERNAME="mqtt"
 ENV EMQX_AUTH__USER__1__PASSWORD="Password1782!"
-#ENV PLATFORM_ETC_DIR="/config/emqx/etc"
-#ENV PLATFORM_LOG_DIR="/config/emqx/log"
+ENV PLATFORM_ETC_DIR="/config/emqx/etc"
+ENV PLATFORM_LOG_DIR="/config/emqx/log"
 #ENV PLATFORM_ETC_DIR="/config/.storage/emqx/etc"
 #ENV PLATFORM_LOG_DIR="/config/.storage/emqx/log"
-#ENV PLATFORM_DATA_DIR="/config/.storage/emqx/data"
+ENV PLATFORM_DATA_DIR="/config/emqx/data"
 
 
 #CMD cd / && cp /config/emq/emq.sh /emq.sh && chmod +x /emq.sh && /emq.sh
 
-VOLUME ["/opt/emqx"]
+#VOLUME ["/opt/emqx"]

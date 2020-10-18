@@ -76,6 +76,8 @@ ENV PLATFORM_ETC_DIR="/config/.storage/emqx/etc"
 ENV PLATFORM_LOG_DIR="/config/.storage/emqx/log"
 ENV PLATFORM_DATA_DIR="/config/.storage/emqx/data"
 
+RUN chmod +x /usr/bin/docker-entrypoint.sh
+
 ENTRYPOINT /usr/bin/docker-entrypoint.sh
 #CMD cd / && cp /config/emq/emq.sh /emq.sh && chmod +x /emq.sh && /emq.sh
 

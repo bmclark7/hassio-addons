@@ -1,0 +1,42 @@
+{
+  "name": "EMQX2",
+  "version": "4.2.1",
+  "slug": "emqx",
+  "description": "Scalable and Reliable Real-time MQTT Message Broker for IoT in 5G Era",
+  "url": "https://www.emqx.io",
+  "startup": "services",
+  "init": false,
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf",
+    "armv7",
+    "i386"
+  ],
+  "boot": "auto",
+  "hassio_api": true,
+  "hassio_role": "default",
+  "homeassistant_api": true,
+  "auth_api": true,
+  "ports": {
+    "8081/tcp": 8081,
+    "18083/tcp": 18083,
+    "11883/tcp": 11883,
+    "1883/tcp": 1883,
+    "8083/tcp": 8083,
+    "8883/tcp": 8883,
+    "8084/tcp": 8084
+  },
+  "map": [
+    "share:rw",
+    "media:rw",
+    "ssl",
+    "config:rw"
+  ],
+  "options": {
+    "log_level": "info"
+  },
+  "schema": {
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)"
+  }
+}

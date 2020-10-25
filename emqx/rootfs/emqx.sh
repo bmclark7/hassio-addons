@@ -17,11 +17,12 @@ emqx_exit(){
 }
 
 ## Home Assistant Dockr Start Script
-DIR="/data.bak"
-if [ -d "$DIR" ]; then
+FILE="/data/emqx-rel/emqx.done"
+if [ ! -f "$FILE" ]; then
   # Take action if $DIR exists. #
   echo "Installing config files from ${DIR}..."
   cp -a /data.bak/emqx-rel /data/
+  touch "/data/emqx-rel/emqx.done"
 fi
 
 #mount /config/.storage/emqx /data/emqx-rel/_build/emqx/rel/emqx

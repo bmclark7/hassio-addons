@@ -1,8 +1,0 @@
-{"4.2.1",
- [{"4.2.0",
-   [{load_module,emqx_channel,brutal_purge,soft_purge,[]},
-    {apply,{application,set_env,
-                        [emqx,force_shutdown_policy,
-                         #{max_heap_size => 8388608,
-                           message_queue_len => 10000}]}}]}],
- [{"4.2.0",[{load_module,emqx_channel,brutal_purge,soft_purge,[]}]}]}.

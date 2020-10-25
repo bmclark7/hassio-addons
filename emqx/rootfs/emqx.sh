@@ -20,7 +20,7 @@ emqx_exit(){
 FILE="/data/emqx-rel/emqx.done"
 if [ ! -f "$FILE" ]; then
   # Take action if $DIR exists. #
-  echo "Installing config files from ${DIR}..."
+  echo "Moving persistent data (first boot only)..."
   cp -a /data.bak/emqx-rel /data/
   touch "/data/emqx-rel/emqx.done"
 fi

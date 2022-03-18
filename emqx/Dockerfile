@@ -28,12 +28,12 @@ COPY rootfs /
 #
 # First install software packages needed to compile rtl_433 and to publish MQTT events
 #
-RUN mv /etc/apk/repositories /etc/apk/repositories.bak && \
+RUN apk add --no-cache alpine-sdk git bsd-compat-headers && \
+    mv /etc/apk/repositories /etc/apk/repositories.bak && \
     echo "http://dl-cdn.alpinelinux.org/alpine/v3.10/main" >> /etc/apk/repositories && \
     echo "http://dl-cdn.alpinelinux.org/alpine/v3.10/community" >> /etc/apk/repositories && \
     apk update && \
-    apk add --no-cache alpine-sdk git \
-    bsd-compat-headers \
+    apk add --no-cache \
     erlang \
     erlang-crypto \
     erlang-public-key \
